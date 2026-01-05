@@ -2,6 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { analyzeKeywords } from "../nlp/keywordStats";
 import { writeOutputs } from "../export/exporters";
+import { sortKeywordStats } from "../export/sort";
+import { suppressDominatedUnigrams } from "../nlp/suppress";
 
 type ReportRow = {
   name: string;
@@ -39,16 +41,23 @@ async function main() {
     throw new Error(`Report at ${reportPath} isn't {name, playing}[] as expected.`);
   }
 
-  const stats = analyzeKeywords(rows);
+  const statsUnsorted = analyzeKeywords(rows, { minN: 1, maxN: 3, minCount: 2 });
+  let stats = sortKeywordStats(statsUnsorted);
+
+  // suppress component unigrams dominated by phrases
+  stats = suppressDominatedUnigrams(stats, { threshold: 0.8, minPhraseCount: 3 });
+
+  // re-sort after suppression (optional but nice)
+  stats = sortKeywordStats(stats);
 
   // Base name: same as report but suffix "_keywords"
   const outBaseNoExt = reportPath.replace(/\.json$/i, "_keywords");
 
-  writeOutputs({
-    outBasePathNoExt: outBaseNoExt,
-    formats,
-    rows: stats,
-  });
+  const unigrams = stats.filter((s) => !s.keyword.includes(" "));
+  const phrases = stats.filter((s) => s.keyword.includes(" "));
+
+  writeOutputs({ outBasePathNoExt: outBaseNoExt + "_phrases", formats, rows: phrases });
+  writeOutputs({ outBasePathNoExt: outBaseNoExt + "_unigrams", formats, rows: unigrams });
 
   console.log(`Analyzed ${rows.length} titles -> ${stats.length} keywords`);
   console.log(`Wrote formats [${formats.join(", ")}] to base: ${outBaseNoExt}.*`);

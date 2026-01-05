@@ -11,7 +11,7 @@ export const STOPWORDS = new Set([
     "upd","update","updated","updates",
     "beta","alpha","test","testing",
     "new","old","v","ver","version","release","patch","hotfix",
-    "fix","fixed","fixes",
+    "fix","fixed","fixes", "event",
   
     // Engagement bait
     "join","like","favorite","favorites","group","follow",
