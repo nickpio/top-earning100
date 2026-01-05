@@ -1,46 +1,57 @@
 import fs from "node:fs";
 import path from "node:path";
 import { analyzeKeywords } from "../nlp/keywordStats";
+import { writeOutputs } from "../export/exporters";
 
 type ReportRow = {
   name: string;
   playing: number;
 };
 
+function getArg(flag: string): string | undefined {
+  const idx = process.argv.indexOf(flag);
+  if (idx === -1) return undefined;
+  return process.argv[idx + 1];
+}
+
 function latestReport(): string {
   const dir = path.resolve(process.cwd(), "reports");
   const files = fs
     .readdirSync(dir)
     .filter((f) => f.endsWith(".json"))
-    // ✅ only your raw top-earning reports; exclude derived outputs
-    .filter((f) => f.includes("_top-earning_top") && !f.endsWith("_keywords.json"))
+    // only raw reports, not derived
+    .filter((f) => f.includes("_top-earning_top") && !f.includes("_keywords"))
     .sort();
 
-  if (files.length === 0) {
-    throw new Error(`No raw top-earning report found in ${dir}`);
-  }
+  if (files.length === 0) throw new Error(`No raw top-earning report found in ${dir}`);
   return path.join(dir, files[files.length - 1]);
 }
 
 async function main() {
-  const reportPath = latestReport();
+  const reportPath = getArg("--file") ?? latestReport();
+  const formatsArg = getArg("--formats") ?? "json,csv,xlsx"; // default
+  const formats = formatsArg.split(",").map((s) => s.trim()).filter(Boolean);
+
   const raw = fs.readFileSync(reportPath, "utf8");
   const rows = JSON.parse(raw) as ReportRow[];
 
-  // Optional sanity check (helps catch schema mismatch immediately)
   if (!Array.isArray(rows) || rows.length === 0 || typeof (rows as any)[0]?.name !== "string") {
-    throw new Error(
-      `Report at ${reportPath} doesn't look like the expected shape (rows with {name, playing}).`
-    );
+    throw new Error(`Report at ${reportPath} isn't {name, playing}[] as expected.`);
   }
 
   const stats = analyzeKeywords(rows);
 
-  const outPath = reportPath.replace(".json", "_keywords.json");
-  fs.writeFileSync(outPath, JSON.stringify(stats, null, 2), "utf8");
+  // Base name: same as report but suffix "_keywords"
+  const outBaseNoExt = reportPath.replace(/\.json$/i, "_keywords");
+
+  writeOutputs({
+    outBasePathNoExt: outBaseNoExt,
+    formats,
+    rows: stats,
+  });
 
   console.log(`Analyzed ${rows.length} titles -> ${stats.length} keywords`);
-  console.log(`Wrote: ${outPath}`);
+  console.log(`Wrote formats [${formats.join(", ")}] to base: ${outBaseNoExt}.*`);
   console.log(stats.slice(0, 10));
 }
 
