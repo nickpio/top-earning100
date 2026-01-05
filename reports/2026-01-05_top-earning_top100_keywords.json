@@ -1,0 +1,1027 @@
+[
+  {
+    "keyword": "anime",
+    "count": 8,
+    "avgPlayers": 18231
+  },
+  {
+    "keyword": "simulator",
+    "count": 6,
+    "avgPlayers": 62145
+  },
+  {
+    "keyword": "tower",
+    "count": 4,
+    "avgPlayers": 15879
+  },
+  {
+    "keyword": "defense",
+    "count": 4,
+    "avgPlayers": 15879
+  },
+  {
+    "keyword": "brainrot",
+    "count": 3,
+    "avgPlayers": 160678
+  },
+  {
+    "keyword": "racing",
+    "count": 3,
+    "avgPlayers": 10765
+  },
+  {
+    "keyword": "rivals",
+    "count": 3,
+    "avgPlayers": 103516
+  },
+  {
+    "keyword": "event",
+    "count": 3,
+    "avgPlayers": 8632
+  },
+  {
+    "keyword": "jujutsu",
+    "count": 3,
+    "avgPlayers": 45353
+  },
+  {
+    "keyword": "champions",
+    "count": 2,
+    "avgPlayers": 4896
+  },
+  {
+    "keyword": "life",
+    "count": 2,
+    "avgPlayers": 6426
+  },
+  {
+    "keyword": "duels",
+    "count": 2,
+    "avgPlayers": 20861
+  },
+  {
+    "keyword": "blue",
+    "count": 2,
+    "avgPlayers": 16989
+  },
+  {
+    "keyword": "dragon",
+    "count": 2,
+    "avgPlayers": 9844
+  },
+  {
+    "keyword": "soul",
+    "count": 2,
+    "avgPlayers": 5727
+  },
+  {
+    "keyword": "boss",
+    "count": 2,
+    "avgPlayers": 2319
+  },
+  {
+    "keyword": "christmas",
+    "count": 2,
+    "avgPlayers": 36559
+  },
+  {
+    "keyword": "battlegrounds",
+    "count": 2,
+    "avgPlayers": 82690
+  },
+  {
+    "keyword": "stand",
+    "count": 2,
+    "avgPlayers": 4200
+  },
+  {
+    "keyword": "brainrots",
+    "count": 2,
+    "avgPlayers": 34510
+  },
+  {
+    "keyword": "nights",
+    "count": 2,
+    "avgPlayers": 436836
+  },
+  {
+    "keyword": "untitled",
+    "count": 2,
+    "avgPlayers": 6544
+  },
+  {
+    "keyword": "winter",
+    "count": 2,
+    "avgPlayers": 14672
+  },
+  {
+    "keyword": "ball",
+    "count": 2,
+    "avgPlayers": 24504
+  },
+  {
+    "keyword": "blade",
+    "count": 2,
+    "avgPlayers": 16951
+  },
+  {
+    "keyword": "tycoon",
+    "count": 2,
+    "avgPlayers": 8738
+  },
+  {
+    "keyword": "weekend",
+    "count": 2,
+    "avgPlayers": 19018
+  },
+  {
+    "keyword": "survive",
+    "count": 2,
+    "avgPlayers": 14797
+  },
+  {
+    "keyword": "rng",
+    "count": 2,
+    "avgPlayers": 28207
+  },
+  {
+    "keyword": "evolution",
+    "count": 1,
+    "avgPlayers": 26511
+  },
+  {
+    "keyword": "midnight",
+    "count": 1,
+    "avgPlayers": 8400
+  },
+  {
+    "keyword": "chasers",
+    "count": 1,
+    "avgPlayers": 8400
+  },
+  {
+    "keyword": "highway",
+    "count": 1,
+    "avgPlayers": 8400
+  },
+  {
+    "keyword": "find",
+    "count": 1,
+    "avgPlayers": 50336
+  },
+  {
+    "keyword": "323",
+    "count": 1,
+    "avgPlayers": 50336
+  },
+  {
+    "keyword": "rebirth",
+    "count": 1,
+    "avgPlayers": 8100
+  },
+  {
+    "keyword": "horse",
+    "count": 1,
+    "avgPlayers": 4908
+  },
+  {
+    "keyword": "murderers",
+    "count": 1,
+    "avgPlayers": 26309
+  },
+  {
+    "keyword": "sheriffs",
+    "count": 1,
+    "avgPlayers": 26309
+  },
+  {
+    "keyword": "border",
+    "count": 1,
+    "avgPlayers": 1817
+  },
+  {
+    "keyword": "line",
+    "count": 1,
+    "avgPlayers": 1817
+  },
+  {
+    "keyword": "scp",
+    "count": 1,
+    "avgPlayers": 4695
+  },
+  {
+    "keyword": "roleplay",
+    "count": 1,
+    "avgPlayers": 4695
+  },
+  {
+    "keyword": "shopkeeper",
+    "count": 1,
+    "avgPlayers": 18807
+  },
+  {
+    "keyword": "slap",
+    "count": 1,
+    "avgPlayers": 18807
+  },
+  {
+    "keyword": "battles",
+    "count": 1,
+    "avgPlayers": 18807
+  },
+  {
+    "keyword": "arcane",
+    "count": 1,
+    "avgPlayers": 1603
+  },
+  {
+    "keyword": "lineage",
+    "count": 1,
+    "avgPlayers": 1603
+  },
+  {
+    "keyword": "doors",
+    "count": 1,
+    "avgPlayers": 21576
+  },
+  {
+    "keyword": "daily",
+    "count": 1,
+    "avgPlayers": 21576
+  },
+  {
+    "keyword": "runs",
+    "count": 1,
+    "avgPlayers": 21576
+  },
+  {
+    "keyword": "blind",
+    "count": 1,
+    "avgPlayers": 33797
+  },
+  {
+    "keyword": "shot",
+    "count": 1,
+    "avgPlayers": 33797
+  },
+  {
+    "keyword": "eternal",
+    "count": 1,
+    "avgPlayers": 18798
+  },
+  {
+    "keyword": "chop",
+    "count": 1,
+    "avgPlayers": 32824
+  },
+  {
+    "keyword": "your",
+    "count": 1,
+    "avgPlayers": 32824
+  },
+  {
+    "keyword": "tree",
+    "count": 1,
+    "avgPlayers": 32824
+  },
+  {
+    "keyword": "bubble",
+    "count": 1,
+    "avgPlayers": 10263
+  },
+  {
+    "keyword": "gum",
+    "count": 1,
+    "avgPlayers": 10263
+  },
+  {
+    "keyword": "infinity",
+    "count": 1,
+    "avgPlayers": 10263
+  },
+  {
+    "keyword": "racket",
+    "count": 1,
+    "avgPlayers": 9430
+  },
+  {
+    "keyword": "emergency",
+    "count": 1,
+    "avgPlayers": 37519
+  },
+  {
+    "keyword": "hamburg",
+    "count": 1,
+    "avgPlayers": 37519
+  },
+  {
+    "keyword": "lock",
+    "count": 1,
+    "avgPlayers": 28295
+  },
+  {
+    "keyword": "zamasu",
+    "count": 1,
+    "avgPlayers": 5160
+  },
+  {
+    "keyword": "mmo",
+    "count": 1,
+    "avgPlayers": 5160
+  },
+  {
+    "keyword": "december",
+    "count": 1,
+    "avgPlayers": 3271
+  },
+  {
+    "keyword": "holidays",
+    "count": 1,
+    "avgPlayers": 3271
+  },
+  {
+    "keyword": "phantom",
+    "count": 1,
+    "avgPlayers": 3271
+  },
+  {
+    "keyword": "forces",
+    "count": 1,
+    "avgPlayers": 3271
+  },
+  {
+    "keyword": "fight",
+    "count": 1,
+    "avgPlayers": 3591
+  },
+  {
+    "keyword": "combat",
+    "count": 1,
+    "avgPlayers": 3591
+  },
+  {
+    "keyword": "warriors",
+    "count": 1,
+    "avgPlayers": 3591
+  },
+  {
+    "keyword": "winterfest",
+    "count": 1,
+    "avgPlayers": 22520
+  },
+  {
+    "keyword": "driving",
+    "count": 1,
+    "avgPlayers": 22520
+  },
+  {
+    "keyword": "empire",
+    "count": 1,
+    "avgPlayers": 22520
+  },
+  {
+    "keyword": "car",
+    "count": 1,
+    "avgPlayers": 22520
+  },
+  {
+    "keyword": "build",
+    "count": 1,
+    "avgPlayers": 27842
+  },
+  {
+    "keyword": "boat",
+    "count": 1,
+    "avgPlayers": 27842
+  },
+  {
+    "keyword": "treasure",
+    "count": 1,
+    "avgPlayers": 27842
+  },
+  {
+    "keyword": "something",
+    "count": 1,
+    "avgPlayers": 7886
+  },
+  {
+    "keyword": "evil",
+    "count": 1,
+    "avgPlayers": 7886
+  },
+  {
+    "keyword": "will",
+    "count": 1,
+    "avgPlayers": 7886
+  },
+  {
+    "keyword": "happen",
+    "count": 1,
+    "avgPlayers": 7886
+  },
+  {
+    "keyword": "heroes",
+    "count": 1,
+    "avgPlayers": 19050
+  },
+  {
+    "keyword": "tank",
+    "count": 1,
+    "avgPlayers": 9282
+  },
+  {
+    "keyword": "final",
+    "count": 1,
+    "avgPlayers": 3527
+  },
+  {
+    "keyword": "remastered",
+    "count": 1,
+    "avgPlayers": 3527
+  },
+  {
+    "keyword": "fishing",
+    "count": 1,
+    "avgPlayers": 21833
+  },
+  {
+    "keyword": "plants",
+    "count": 1,
+    "avgPlayers": 47187
+  },
+  {
+    "keyword": "five",
+    "count": 1,
+    "avgPlayers": 6293
+  },
+  {
+    "keyword": "trading",
+    "count": 1,
+    "avgPlayers": 6293
+  },
+  {
+    "keyword": "royale",
+    "count": 1,
+    "avgPlayers": 16419
+  },
+  {
+    "keyword": "high",
+    "count": 1,
+    "avgPlayers": 16419
+  },
+  {
+    "keyword": "mermaid",
+    "count": 1,
+    "avgPlayers": 16419
+  },
+  {
+    "keyword": "potions",
+    "count": 1,
+    "avgPlayers": 16419
+  },
+  {
+    "keyword": "nfl",
+    "count": 1,
+    "avgPlayers": 15643
+  },
+  {
+    "keyword": "universe",
+    "count": 1,
+    "avgPlayers": 15643
+  },
+  {
+    "keyword": "football",
+    "count": 1,
+    "avgPlayers": 15643
+  },
+  {
+    "keyword": "evade",
+    "count": 1,
+    "avgPlayers": 50225
+  },
+  {
+    "keyword": "supernova",
+    "count": 1,
+    "avgPlayers": 12005
+  },
+  {
+    "keyword": "boxing",
+    "count": 1,
+    "avgPlayers": 12005
+  },
+  {
+    "keyword": "ace",
+    "count": 1,
+    "avgPlayers": 14581
+  },
+  {
+    "keyword": "eater",
+    "count": 1,
+    "avgPlayers": 14581
+  },
+  {
+    "keyword": "azure",
+    "count": 1,
+    "avgPlayers": 14581
+  },
+  {
+    "keyword": "latch",
+    "count": 1,
+    "avgPlayers": 14581
+  },
+  {
+    "keyword": "jailbreak",
+    "count": 1,
+    "avgPlayers": 21282
+  },
+  {
+    "keyword": "baddies",
+    "count": 1,
+    "avgPlayers": 12642
+  },
+  {
+    "keyword": "death",
+    "count": 1,
+    "avgPlayers": 20750
+  },
+  {
+    "keyword": "warrior",
+    "count": 1,
+    "avgPlayers": 7624
+  },
+  {
+    "keyword": "cats",
+    "count": 1,
+    "avgPlayers": 7624
+  },
+  {
+    "keyword": "edition",
+    "count": 1,
+    "avgPlayers": 7624
+  },
+  {
+    "keyword": "xmas25",
+    "count": 1,
+    "avgPlayers": 2693
+  },
+  {
+    "keyword": "zero",
+    "count": 1,
+    "avgPlayers": 13665
+  },
+  {
+    "keyword": "attack",
+    "count": 1,
+    "avgPlayers": 16037
+  },
+  {
+    "keyword": "titan",
+    "count": 1,
+    "avgPlayers": 16037
+  },
+  {
+    "keyword": "revolution",
+    "count": 1,
+    "avgPlayers": 16037
+  },
+  {
+    "keyword": "pixel",
+    "count": 1,
+    "avgPlayers": 5643
+  },
+  {
+    "keyword": "divinity",
+    "count": 1,
+    "avgPlayers": 5643
+  },
+  {
+    "keyword": "dungeon",
+    "count": 1,
+    "avgPlayers": 12191
+  },
+  {
+    "keyword": "hunters",
+    "count": 1,
+    "avgPlayers": 12191
+  },
+  {
+    "keyword": "aba",
+    "count": 1,
+    "avgPlayers": 8646
+  },
+  {
+    "keyword": "crusaders",
+    "count": 1,
+    "avgPlayers": 21698
+  },
+  {
+    "keyword": "war",
+    "count": 1,
+    "avgPlayers": 11793
+  },
+  {
+    "keyword": "asylum",
+    "count": 1,
+    "avgPlayers": 7944
+  },
+  {
+    "keyword": "bedwars",
+    "count": 1,
+    "avgPlayers": 36953
+  },
+  {
+    "keyword": "2xp",
+    "count": 1,
+    "avgPlayers": 36953
+  },
+  {
+    "keyword": "jump",
+    "count": 1,
+    "avgPlayers": 8061
+  },
+  {
+    "keyword": "showdown",
+    "count": 1,
+    "avgPlayers": 8061
+  },
+  {
+    "keyword": "adventures",
+    "count": 1,
+    "avgPlayers": 14527
+  },
+  {
+    "keyword": "creatures",
+    "count": 1,
+    "avgPlayers": 23327
+  },
+  {
+    "keyword": "sonaria",
+    "count": 1,
+    "avgPlayers": 23327
+  },
+  {
+    "keyword": "kaiju",
+    "count": 1,
+    "avgPlayers": 23327
+  },
+  {
+    "keyword": "animals",
+    "count": 1,
+    "avgPlayers": 23327
+  },
+  {
+    "keyword": "matchmaking",
+    "count": 1,
+    "avgPlayers": 15413
+  },
+  {
+    "keyword": "sniper",
+    "count": 1,
+    "avgPlayers": 15413
+  },
+  {
+    "keyword": "card",
+    "count": 1,
+    "avgPlayers": 9527
+  },
+  {
+    "keyword": "clash",
+    "count": 1,
+    "avgPlayers": 9527
+  },
+  {
+    "keyword": "dandy",
+    "count": 1,
+    "avgPlayers": 127148
+  },
+  {
+    "keyword": "ink",
+    "count": 1,
+    "avgPlayers": 30146
+  },
+  {
+    "keyword": "tap",
+    "count": 1,
+    "avgPlayers": 28381
+  },
+  {
+    "keyword": "fighting",
+    "count": 1,
+    "avgPlayers": 53622
+  },
+  {
+    "keyword": "endless",
+    "count": 1,
+    "avgPlayers": 53622
+  },
+  {
+    "keyword": "pet",
+    "count": 1,
+    "avgPlayers": 40184
+  },
+  {
+    "keyword": "hypershot",
+    "count": 1,
+    "avgPlayers": 47634
+  },
+  {
+    "keyword": "infinite",
+    "count": 1,
+    "avgPlayers": 32415
+  },
+  {
+    "keyword": "welcome",
+    "count": 1,
+    "avgPlayers": 28586
+  },
+  {
+    "keyword": "bloxburg",
+    "count": 1,
+    "avgPlayers": 28586
+  },
+  {
+    "keyword": "vanguards",
+    "count": 1,
+    "avgPlayers": 30193
+  },
+  {
+    "keyword": "sol",
+    "count": 1,
+    "avgPlayers": 54067
+  },
+  {
+    "keyword": "brookhaven",
+    "count": 1,
+    "avgPlayers": 1025661
+  },
+  {
+    "keyword": "year",
+    "count": 1,
+    "avgPlayers": 112822
+  },
+  {
+    "keyword": "dress",
+    "count": 1,
+    "avgPlayers": 112822
+  },
+  {
+    "keyword": "impress",
+    "count": 1,
+    "avgPlayers": 112822
+  },
+  {
+    "keyword": "universal",
+    "count": 1,
+    "avgPlayers": 23033
+  },
+  {
+    "keyword": "fish",
+    "count": 1,
+    "avgPlayers": 988062
+  },
+  {
+    "keyword": "pagani",
+    "count": 1,
+    "avgPlayers": 13316
+  },
+  {
+    "keyword": "200k",
+    "count": 1,
+    "avgPlayers": 13316
+  },
+  {
+    "keyword": "cash",
+    "count": 1,
+    "avgPlayers": 13316
+  },
+  {
+    "keyword": "greenville",
+    "count": 1,
+    "avgPlayers": 13316
+  },
+  {
+    "keyword": "grow",
+    "count": 1,
+    "avgPlayers": 82371
+  },
+  {
+    "keyword": "garden",
+    "count": 1,
+    "avgPlayers": 82371
+  },
+  {
+    "keyword": "forsaken",
+    "count": 1,
+    "avgPlayers": 130788
+  },
+  {
+    "keyword": "shenanigans",
+    "count": 1,
+    "avgPlayers": 89980
+  },
+  {
+    "keyword": "strongest",
+    "count": 1,
+    "avgPlayers": 146330
+  },
+  {
+    "keyword": "fisch",
+    "count": 1,
+    "avgPlayers": 82226
+  },
+  {
+    "keyword": "volleyball",
+    "count": 1,
+    "avgPlayers": 105537
+  },
+  {
+    "keyword": "legends",
+    "count": 1,
+    "avgPlayers": 105537
+  },
+  {
+    "keyword": "forest",
+    "count": 1,
+    "avgPlayers": 867379
+  },
+  {
+    "keyword": "years",
+    "count": 1,
+    "avgPlayers": 33607
+  },
+  {
+    "keyword": "adopt",
+    "count": 1,
+    "avgPlayers": 284183
+  },
+  {
+    "keyword": "bee",
+    "count": 1,
+    "avgPlayers": 206811
+  },
+  {
+    "keyword": "swarm",
+    "count": 1,
+    "avgPlayers": 206811
+  },
+  {
+    "keyword": "forge",
+    "count": 1,
+    "avgPlayers": 243454
+  },
+  {
+    "keyword": "xmas",
+    "count": 1,
+    "avgPlayers": 243454
+  },
+  {
+    "keyword": "steal",
+    "count": 1,
+    "avgPlayers": 405186
+  },
+  {
+    "keyword": "blox",
+    "count": 1,
+    "avgPlayers": 478539
+  },
+  {
+    "keyword": "fruits",
+    "count": 1,
+    "avgPlayers": 478539
+  },
+  {
+    "keyword": "kat",
+    "count": 1,
+    "avgPlayers": 476
+  },
+  {
+    "keyword": "sale",
+    "count": 1,
+    "avgPlayers": 2008
+  },
+  {
+    "keyword": "one",
+    "count": 1,
+    "avgPlayers": 2008
+  },
+  {
+    "keyword": "fruit",
+    "count": 1,
+    "avgPlayers": 2008
+  },
+  {
+    "keyword": "mount",
+    "count": 1,
+    "avgPlayers": 2347
+  },
+  {
+    "keyword": "qol",
+    "count": 1,
+    "avgPlayers": 4872
+  },
+  {
+    "keyword": "last",
+    "count": 1,
+    "avgPlayers": 4872
+  },
+  {
+    "keyword": "parkour",
+    "count": 1,
+    "avgPlayers": 1691
+  },
+  {
+    "keyword": "skibidi",
+    "count": 1,
+    "avgPlayers": 4181
+  },
+  {
+    "keyword": "celestial",
+    "count": 1,
+    "avgPlayers": 1980
+  },
+  {
+    "keyword": "bikini",
+    "count": 1,
+    "avgPlayers": 6267
+  },
+  {
+    "keyword": "bottom",
+    "count": 1,
+    "avgPlayers": 6267
+  },
+  {
+    "keyword": "red",
+    "count": 1,
+    "avgPlayers": 5683
+  },
+  {
+    "keyword": "rpg",
+    "count": 1,
+    "avgPlayers": 1083
+  },
+  {
+    "keyword": "drop",
+    "count": 1,
+    "avgPlayers": 1083
+  },
+  {
+    "keyword": "infection",
+    "count": 1,
+    "avgPlayers": 598
+  },
+  {
+    "keyword": "gunfight",
+    "count": 1,
+    "avgPlayers": 598
+  },
+  {
+    "keyword": "heat",
+    "count": 1,
+    "avgPlayers": 1047
+  },
+  {
+    "keyword": "mode",
+    "count": 1,
+    "avgPlayers": 1047
+  },
+  {
+    "keyword": "ohma",
+    "count": 1,
+    "avgPlayers": 1047
+  },
+  {
+    "keyword": "fistborn",
+    "count": 1,
+    "avgPlayers": 1047
+  },
+  {
+    "keyword": "fling",
+    "count": 1,
+    "avgPlayers": 41202
+  },
+  {
+    "keyword": "things",
+    "count": 1,
+    "avgPlayers": 41202
+  },
+  {
+    "keyword": "people",
+    "count": 1,
+    "avgPlayers": 41202
+  },
+  {
+    "keyword": "case",
+    "count": 1,
+    "avgPlayers": 6311
+  },
+  {
+    "keyword": "paradise",
+    "count": 1,
+    "avgPlayers": 6311
+  },
+  {
+    "keyword": "uma",
+    "count": 1,
+    "avgPlayers": 1374
+  }
+]
