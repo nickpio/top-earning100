@@ -5,6 +5,9 @@ import { fetchGameDetailsByUniverseIds } from "../scrape/gameDetails";
 import { fetchGamePassStatsBatch } from "../scrape/gamePassesBatch";
 import { fetchPaidAccessFromPlaceDetails } from "../scrape/paidAccess";
 import { loadGamePassCache, saveGamePassCache, splitUniverseIdsByCacheFreshness, getCached, setCached } from "../cache/gamePassCache";
+import { fetchVotesBatch } from "../scrape/votes";
+import { fetchFavoritesCountBatch } from "../scrape/favorites";
+import { loadFavoritesCache, saveFavoritesCache, splitByFreshness, getCachedFavorites, setCachedFavorites } from "../cache/favoritesCache";
 
 function getArg(flag: string): string | undefined {
   const i = process.argv.indexOf(flag);
@@ -32,7 +35,9 @@ type Row = {
 
   playing: number;
   visits: number;
-
+  likes: number | null;
+  dislikes: number | null;
+  favorites: number | null;
   developerName: string | null;
 
   gameAgeDays: number | null;
@@ -62,6 +67,30 @@ async function main() {
     minIntervalMs: 350, // ✅ ~3 req/sec max
   });
 
+  // --- votes (daily, batched)
+const votesById = await fetchVotesBatch(universeIds, {
+  batchSize: 50,
+  concurrency: 2,
+  minIntervalMs: 250,
+});
+
+// --- favorites (weekly cache)
+const favoritesCache = loadFavoritesCache();
+const FAVORITES_CACHE_DAYS = 7;
+
+const { staleOrMissing: staleOrMissingFavs } = splitByFreshness(favoritesCache, universeIds, FAVORITES_CACHE_DAYS);
+
+if (staleOrMissingFavs.length > 0) {
+  const fetchedFavs = await fetchFavoritesCountBatch(staleOrMissingFavs, {
+    concurrency: 4,
+    minIntervalMs: 250,
+  });
+
+  for (const [id, count] of fetchedFavs.entries()) {
+    setCachedFavorites(favoritesCache, id, count);
+  }
+  saveFavoritesCache(favoritesCache);
+}
   const byId = new Map(details.map((d) => [d.universeId, d]));
 
   // Game pass stats (heavy): use cache to minimize API calls
@@ -112,6 +141,8 @@ async function main() {
     const cached = getCached(cache, it.universeId, PASS_CACHE_DAYS);
     const passStats = cached ?? null;
 
+    const v = votesById.get(it.universeId);
+    const favorites = getCachedFavorites(favoritesCache, it.universeId, FAVORITES_CACHE_DAYS);
     rows.push({
       rank: it.rank,
       universeId: it.universeId,
@@ -121,6 +152,9 @@ async function main() {
 
       playing: d?.playing ?? 0,
       visits: d?.visits ?? 0,
+      likes: v?.upVotes ?? null,
+      dislikes: v?.downVotes ?? null,
+      favorites: favorites,
 
       developerName: d?.creatorName ?? null,
 

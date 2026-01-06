@@ -8,6 +8,9 @@ export type EnrichedGameRow = {
   
     playing?: number;
     visits?: number;
+    favorites: number;
+    likes: number;
+    dislikes: number;
   
     developerName?: string | null;
   
@@ -30,6 +33,9 @@ export type EnrichedGameRow = {
   
     players: number;
     visits: number;
+    favorites: number;
+    likes: number;
+    dislikes: number;
   
     paidAccess: boolean | null;
     paidAccessPrice: number | null;
@@ -57,6 +63,9 @@ export type EnrichedGameRow = {
   
       players: safeInt(r.playing, 0),
       visits: safeInt(r.visits, 0),
+      favorites: safeInt(r.favorites, 0),
+      likes: safeInt(r.likes, 0 ),
+      dislikes: safeInt(r.dislikes, 0),
   
       paidAccess: typeof r.paidAccess === "boolean" ? r.paidAccess : null,
       paidAccessPrice: safeNullableInt(r.paidAccessPrice),
