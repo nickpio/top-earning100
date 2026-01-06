@@ -113,9 +113,6 @@ def _read_parquet_if_exists(path: Path) -> pd.DataFrame:
     return pd.DataFrame()
 
 
-def _write_latest_copy(src: Path, dst: Path) -> None:
-    dst.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
-
 def export_rebalance_outputs(
     result_membership_obj: object,
     ranked_universe_obj: object,
@@ -213,19 +210,12 @@ def export_rebalance_outputs(
     # --- write files ---
     dated_csv = exports_day / "rte100.csv"
     dated_json = exports_day / "rte100.json"
-    latest_csv = exports_root / "rte100_latest.csv"
-    latest_json = exports_root / "rte100_latest.json"
 
     export_df.to_csv(dated_csv, index=False)
     export_df.to_json(dated_json, orient="records", indent=2)
 
-    export_df.to_csv(latest_csv, index=False)
-    export_df.to_json(latest_json, orient="records", indent=2)
-
-    print(f"[index_engine] Exported dated:  {dated_csv}")
-    print(f"[index_engine] Exported dated:  {dated_json}")
-    print(f"[index_engine] Exported latest: {latest_csv}")
-    print(f"[index_engine] Exported latest: {latest_json}")
+    print(f"[index_engine] Exported: {dated_csv}")
+    print(f"[index_engine] Exported: {dated_json}")
 
     return export_df
 def run_weekly_rebalance(
@@ -281,17 +271,17 @@ def run_weekly_rebalance(
     exports_day=exports_day,
 )
 
-    # --- Weekly report: dated + latest ---
-    dated_report_path = write_weekly_report(
-        exports_dir=str(exports_day),
+    # --- Weekly report: to "Weekly Reports" folder ---
+    weekly_reports_dir = exports_root / "Weekly Reports"
+    _ensure_dir(weekly_reports_dir)
+    write_weekly_report(
+        exports_dir=str(weekly_reports_dir),
         rebalance_date=rebalance_date,
         export_df=_as_df(export_df),
         membership_history=_as_df(membership_all),
     )
-    latest_report_path = exports_root / "rte100_report_latest.md"
-    _write_latest_copy(Path(dated_report_path), latest_report_path)
 
-    # --- Index level: dated + latest ---
+    # --- Index level: dated folder only ---
     index_ts = build_index_level_series(
         snapshots=_as_df(snapshots),
         membership_history=_as_df(membership_all),
@@ -300,11 +290,10 @@ def run_weekly_rebalance(
     )
 
     write_index_level_exports(_as_df(index_ts), exports_dir=str(exports_day))
-    write_index_level_exports(_as_df(index_ts), exports_dir=str(exports_root))
 
     print(f"[index_engine] Rebalance complete: {rebalance_date}")
-    print(f"[index_engine] Exports dated: {exports_day}")
-    print(f"[index_engine] Exports latest: {exports_root}")
+    print(f"[index_engine] Exports: {exports_day}")
+    print(f"[index_engine] Weekly reports: {weekly_reports_dir}")
 
 
 def run_pipeline(

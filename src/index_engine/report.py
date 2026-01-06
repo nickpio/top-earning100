@@ -179,10 +179,7 @@ def write_weekly_report(
 
     md = "\n".join(lines).strip() + "\n"
 
-    dated_path = out_dir / f"rte100_report_{rebalance_date}.md"
-    latest_path = out_dir / "rte100_report_latest.md"
+    report_path = out_dir / f"rte100_report_{rebalance_date}.md"
+    report_path.write_text(md, encoding="utf-8")
 
-    dated_path.write_text(md, encoding="utf-8")
-    latest_path.write_text(md, encoding="utf-8")
-
-    return dated_path
+    return report_path
