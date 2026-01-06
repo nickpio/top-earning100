@@ -102,3 +102,120 @@ def add_ccu(df: pd.DataFrame) -> pd.DataFrame:
     df["avg_ccu"] = 0.0
     return df
 
+def add_monetization(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+
+    if "monetization_count" not in df.columns:
+        if "num_gamepasses" in df.columns or "num_devproducts" in df.columns:
+            df["monetization_count"] = (
+                df.get("num_gamepasses", 0).fillna(0).astype(float)
+                + df.get("num_devproducts", 0).fillna(0).astype(float)
+            )
+        else:
+            gp = df.get("game_passes", pd.Series([None] * len(df)))
+            dp = df.get("dev_products", pd.Series([None] * len(df)))
+            df["monetization_count"] = gp.apply(lambda v: len(v) if isinstance(v, list) else 0) + dp.apply(lambda v: len(v) if isinstance(v, list) else 0)
+
+    gp_prices = df.get("game_passes", pd.Series([None] * len(df))).apply(_extract_prices)
+    dp_prices = df.get("dev_products", pd.Series([None] * len(df))).apply(_extract_prices)
+    all_prices = gp_prices + dp_prices
+
+    def median(prices: List[float]) -> float:
+        if not prices:
+            return 0.0
+        s = sorted(prices)
+        mid = len(s)//2
+        return float(s[mid]) if len(s) % 2 == 1 else float((s[mid-1] + s[mid]) / 2)
+    
+    def dispersion(prices: List[float]) -> float:
+        if not prices:
+            return 0.0
+        m = sum(prices) / len(prices)
+        if m <= 0:
+            return 0.0
+        var = sum((p - m) ** 2 for p in prices) / len(prices)
+        return float(math.sqrt(var) / m)
+    
+    df["median_price"] = all_prices.apply(median)
+    df["price_dispersion"] = all_prices.apply(dispersion)
+
+    return df
+
+def add_engagement(df: pd.DataFrame, params: EDRParams) -> pd.DataFrame:
+    df = df.copy()
+    visits = df.get("visits", 0).fillna(0).astype(float)
+    favorites = df.get("favorites", 0).fillna(0).astype(float)
+    likes = df.get("likes", 0).fillna(0).astype(float)
+
+    fav_rate = _safe_div(favorites, visits)
+    like_rate = _safe_div(likes, visits)
+    raw = 0.5 * (fav_rate + like_rate)
+
+    df["engagement_score"] = (raw * params.engagement_scale).clip(0.0, params.engagement_cap)
+    return df
+
+
+# -----------------------------
+# EDR computation
+# -----------------------------
+
+def compute_edr_for_snapshots(df: pd.DataFrame, params: EDRParams) -> pd.DataFrame:
+    df = add_ccu(df)
+    df = add_monetization(df)
+    df = add_engagement(df, params)
+
+    df["dau_est"] = (params.alpha * df["avg_ccu"]).clip(lower=0.0)
+
+    # PCR v1: base_rate * log(1 + monetization_count)
+    df["pcr"] = (
+        params.base_rate * (1.0 + df["monetization_count"]).apply(lambda x: math.log(x))
+    ).clip(lower=params.pcr_floor, upper=params.pcr_cap)
+
+    # ASPU proxy
+    df["aspu"] = (df["median_price"] * (1.0 + df["price_dispersion"])).clip(lower=0.0)
+
+    df["spend_revenue"] = df["dau_est"] * df["pcr"] * df["aspu"]
+    df["premium_revenue"] = params.gamma * df["dau_est"] * df["engagement_score"]
+    df["edr_raw"] = (df["spend_revenue"] + df["premium_revenue"]).clip(lower=0.0)
+
+    return df
+
+
+# -- Build from runs/
+def build_edr_history_from_runs(
+    runs_dir: Union[str, Path],
+    params: Optional[EDRParams] = None,
+) -> pd.DataFrame:
+    params = params or EDRParams()
+    run_files = discover_pruned_run_files(runs_dir)
+
+    if not run_files:
+        raise FileNotFoundError(f"No pruned JSON files found under {runs_dir}")
+
+    frames = []
+    for date_str, fp in run_files:
+        df_day = load_pruned_file(fp, snapshot_date=date_str)
+        df_day = compute_edr_for_snapshots(df_day, params)
+        frames.append(df_day)
+
+    history = pd.concat(frames, ignore_index=True)
+
+    # Minimal output
+    keep = [
+        "snapshot_date", "universeId", "name", "developer",
+        "avg_ccu", "visits", "favorites", "likes",
+        "monetization_count", "median_price", "price_dispersion",
+        "engagement_score", "dau_est", "pcr", "aspu",
+        "spend_revenue", "premium_revenue", "edr_raw",
+    ]
+    keep = [c for c in keep if c in history.columns]
+    return history[keep].copy()
+
+
+if __name__ == "__main__":
+    history = build_edr_history_from_runs(
+        runs_dir="runs",
+        params=EDRParams(alpha=20.0, base_rate=0.01, gamma=0.02),
+    )
+    history.to_parquet("edr_history.parquet", index=False)
+    print("Wrote edr_history.parquet", len(history))
