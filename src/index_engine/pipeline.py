@@ -113,6 +113,9 @@ def _read_parquet_if_exists(path: Path) -> pd.DataFrame:
     return pd.DataFrame()
 
 
+def _write_latest_copy(src: Path, dst: Path) -> None:
+    dst.write_text(src.read_text(encoding="utf-8"), encoding="utf-8")
+
 def export_rebalance_outputs(
     result_membership_obj: object,
     ranked_universe_obj: object,
